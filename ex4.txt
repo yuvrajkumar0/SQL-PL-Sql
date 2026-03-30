@@ -1,0 +1,149 @@
+SQL> create table avinash(
+  2  person_id varchar2(15) primary key,
+  3  fname varchar2(15),
+  4  lname varchar2(15),
+  5  city varchar2(15),
+  6  salary number(9,2)
+  7  );
+
+Table created.
+
+SQL> insert into avinash values(1,'sneha','sheth','rajkot',10000);
+
+1 row created.
+
+SQL> insert into avinash values(2,'puja','permar','ahmedabad',2000);
+
+1 row created.
+
+SQL> insert into avinash values(3,'riya','gajar','pune',8000);
+
+1 row created.
+
+SQL> insert into avinash values(4,'sandip','jadeja','pune',5000);
+
+1 row created.
+
+SQL> insert into avinash values(5,'alpesh','prajapati','mumbai',20000);
+
+1 row created.
+
+SQL> select * from avinash;
+
+PERSON_ID       FNAME           LNAME           CITY                SALARY      
+--------------- --------------- --------------- --------------- ----------      
+1               sneha           sheth           rajkot               10000      
+2               puja            permar          ahmedabad             2000      
+3               riya            gajar           pune                  8000      
+4               sandip          jadeja          pune                  5000      
+5               alpesh          prajapati       mumbai               20000      
+
+SQL> select person_id fname from avinash;
+
+FNAME                                                                           
+---------------                                                                 
+1                                                                               
+2                                                                               
+3                                                                               
+4                                                                               
+5                                                                               
+
+SQL> select person_id,fname from avinash;
+
+PERSON_ID       FNAME                                                           
+--------------- ---------------                                                 
+1               sneha                                                           
+2               puja                                                            
+3               riya                                                            
+4               sandip                                                          
+5               alpesh                                                          
+
+SQL> select fname,lname from avinash;
+
+FNAME           LNAME                                                           
+--------------- ---------------                                                 
+sneha           sheth                                                           
+puja            permar                                                          
+riya            gajar                                                           
+sandip          jadeja                                                          
+alpesh          prajapati                                                       
+
+SQL> select * from avinash order by salary;
+
+PERSON_ID       FNAME           LNAME           CITY                SALARY      
+--------------- --------------- --------------- --------------- ----------      
+2               puja            permar          ahmedabad             2000      
+4               sandip          jadeja          pune                  5000      
+3               riya            gajar           pune                  8000      
+1               sneha           sheth           rajkot               10000      
+5               alpesh          prajapati       mumbai               20000      
+
+SQL> select distinct city
+  2  from avinash;
+
+CITY                                                                            
+---------------                                                                 
+mumbai                                                                          
+pune                                                                            
+rajkot                                                                          
+ahmedabad                                                                       
+
+SQL> update avinash
+  2  set city= 'kolkata'
+  3  where fname='sandip' and city='pune';
+
+1 row updated.
+
+SQL> select * from avinash;
+
+PERSON_ID       FNAME           LNAME           CITY                SALARY      
+--------------- --------------- --------------- --------------- ----------      
+1               sneha           sheth           rajkot               10000      
+2               puja            permar          ahmedabad             2000      
+3               riya            gajar           pune                  8000      
+4               sandip          jadeja          kolkata               5000      
+5               alpesh          prajapati       mumbai               20000      
+
+SQL> select * from avinash where lname='prajapat';
+
+no rows selected
+
+SQL> select * from avinash where lname='prajapati';
+
+PERSON_ID       FNAME           LNAME           CITY                SALARY      
+--------------- --------------- --------------- --------------- ----------      
+5               alpesh          prajapati       mumbai               20000      
+
+SQL> alter table avinash
+  2  add(contact_no varchar2(15),
+  3  dob date
+  4  );
+
+Table altered.
+
+SQL> select * from avinash where salary>6000;
+
+PERSON_ID       FNAME           LNAME           CITY                SALARY      
+--------------- --------------- --------------- --------------- ----------      
+CONTACT_NO      DOB                                                             
+--------------- ---------                                                       
+1               sneha           sheth           rajkot               10000      
+                                                                                
+                                                                                
+3               riya            gajar           pune                  8000      
+                                                                                
+                                                                                
+5               alpesh          prajapati       mumbai               20000      
+                                                                                
+                                                                                
+
+SQL> delete from avinash
+  2  where salary < 3000;
+
+1 row deleted.
+
+SQL> alter table avinash rename to avinash_master;
+
+Table altered.
+
+SQL> spool off;
