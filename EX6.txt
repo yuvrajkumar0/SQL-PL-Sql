@@ -1,0 +1,83 @@
+SQL> INSERT INTO JOB VALUES ('IT_PROG', 'Programmer', 4000, 10000);
+
+1 row created.
+
+SQL> INSERT INTO JOB VALUES ('MK_MGR', 'Marketing manager', 9000, 15000);
+
+1 row created.
+
+SQL> INSERT INTO JOB VALUES ('FI_MGR', 'Finance manager', 8200, 12000);
+
+1 row created.
+
+SQL> INSERT INTO JOB VALUES ('FI_ACC', 'Account', 4200, 9000);
+
+1 row created.
+
+SQL> INSERT INTO JOB VALUES ('LEC', 'Lecturer', 6000, 17000);
+
+1 row created.
+
+SQL> INSERT INTO JOB VALUES ('COMP_OP', 'Computer Operator', 1500, 3000);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO EMPLOYEE VALUES (101, 'Smith', 800, NULL, 20);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (102, 'Snehal', 1600, 300, 25);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (103, 'Adama', 1100, 0, 20);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (104, 'Aman', 3000, NULL, 15);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (105, 'Anita', 5000, 5000, 10);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (106, 'Sneha', 2450, 2450, 10);
+
+1 row created.
+
+SQL> INSERT INTO EMPLOYEE VALUES (107, 'Anamika', 2975, NULL, 30);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO DEPOSIT VALUES (101, 'Anil', 'andheri', 7000, TO_DATE('01-jan-06','DD-MON-YY'));
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT VALUES (102, 'sunil', 'virar', 5000, TO_DATE('15-jul-06','DD-MON-YY'));
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT VALUES (103, 'jay', 'villeparle', 6500, TO_DATE('12-mar-06','DD-MON-YY'));
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT VALUES (104, 'vijay', 'andheri', 8000, TO_DATE('17-sep-06','DD-MON-YY'));
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT VALUES (105, 'keyur', 'dadar', 7500, TO_DATE('19-nov-06','DD-MON-YY'));
+
+1 row created.
+
+SQL> INSERT INTO DEPOSIT VALUES (106, 'mayur', 'borivali', 5500, TO_DATE('21-dec-06','DD-MON-YY'));
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
