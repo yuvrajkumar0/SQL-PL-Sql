@@ -1,0 +1,74 @@
+SQL> SELECT CNAME FROM DEPOSIT5
+  2  WHERE BNAME IN (SELECT BNAME FROM DEPOSIT5 WHERE CNAME = 'SUNIL');
+
+CNAME                                                                           
+---------------                                                                 
+SUNIL                                                                           
+
+SQL> SELECT * FROM DEPOSIT5 WHERE CNAME IN (SELECT CNAME FROM CUSTOMERS5 WHERE CITY = (SELECT CITY FROM CUSTOMERS5 WHERE CNAME = 'PRAMOD'));
+
+no rows selected
+
+SQL> SELECT * FROM BORROW5 WHERE CNAME IN (SELECT CNAME FROM CUSTOMERS5 WHERE CITY = (SELECT CITY FROM CUSTOMERS5 WHERE CNAME = 'PRAMOD'));
+
+no rows selected
+
+SQL> SELECT emp_no, emp_name FROM EMPLOYEE5
+  2  WHERE emp_sal > (SELECT AVG(emp_sal) FROM EMPLOYEE5)
+  3  ORDER BY emp_sal ASC;
+
+    EMP_NO EMP_NAME                                                             
+---------- --------------------                                                 
+       105 Anita                                                                
+
+SQL> SELECT emp_name, emp_sal FROM EMPLOYEE5
+  2  WHERE dept_no = (SELECT dept_no FROM EMPLOYEE5 WHERE emp_name = 'FORD');
+
+no rows selected
+
+SQL> SELECT dept_no, emp_name FROM EMPLOYEE5
+  2  WHERE dept_no = 10;
+
+   DEPT_NO EMP_NAME                                                             
+---------- --------------------                                                 
+        10 Smith                                                                
+        10 Anita                                                                
+
+SQL> SELECT CNAME FROM CUSTOMERS5
+  2  WHERE CITY = 'NAGPUR'
+  3  AND CNAME IN (SELECT CNAME FROM DEPOSIT5)
+  4  AND CNAME IN (SELECT CNAME FROM BORROW5);
+
+no rows selected
+
+SQL> SELECT CITY FROM CUSTOMERS5
+  2  WHERE CNAME IN (SELECT CNAME FROM DEPOSIT5 WHERE BNAME IN (SELECT BNAME FROM DEPOSIT5));
+
+CITY                                                                            
+---------------                                                                 
+CALCUTTA                                                                        
+DELHI                                                                           
+BOMBAY                                                                          
+
+SQL> SELECT emp_name, dept_no FROM EMPLOYEE5;
+
+EMP_NAME                DEPT_NO                                                 
+-------------------- ----------                                                 
+Smith                        10                                                 
+Updated_Name                 20                                                 
+Anita                        10                                                 
+
+SQL> SELECT DISTINCT emp_name FROM EMPLOYEE5 WHERE dept_no = 30;
+
+no rows selected
+
+SQL> SELECT emp_name, dept_no FROM EMPLOYEE5
+  2  WHERE emp_name IN (SELECT CNAME FROM CUSTOMERS5 WHERE CITY = 'CALCUTTA');
+
+no rows selected
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;

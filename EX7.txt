@@ -1,0 +1,190 @@
+SQL> SELECT * FROM EMPLOYEE;
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO
+---------- -------------------- ---------- ---------- ----------
+       101 Smith                       800                    20
+       102 Snehal                     1600        300         25
+       103 Adama                      1100          0         20
+       104 Aman                       3000                    15
+       105 Anita                      5000       5000         10
+       106 Sneha                      2450       2450         10
+       107 Anamika                    2975                    30
+       101 Smith                       800                    20
+       102 Snehal                     1600        300         25
+       103 Adama                      1100          0         20
+       104 Aman                       3000                    15
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO
+---------- -------------------- ---------- ---------- ----------
+       105 Anita                      5000       5000         10
+       106 Sneha                      2450       2450         10
+       107 Anamika                    2975                    30
+
+14 rows selected.
+
+SQL> SELECT * FROM JOB;
+
+JOB_ID     JOB_NAME                          MIN_SAL    MAX_SAL
+---------- ------------------------------ ---------- ----------
+IT_PROG    Programmer                           4000      10000
+MK_MGR     Marketing Manager                    9000      15000
+FI_MGR     Finance Manager                      8200      12000
+FI_ACC     Account                              4200       9000
+LEC        Lecturer                             6000      17000
+COMP_OP    Computer Operator                    1500       3000
+IT_PROG    Programmer                           4000      10000
+MK_MGR     Marketing manager                    9000      15000
+FI_MGR     Finance manager                      8200      12000
+FI_ACC     Account                              4200       9000
+LEC        Lecturer                             6000      17000
+
+JOB_ID     JOB_NAME                          MIN_SAL    MAX_SAL
+---------- ------------------------------ ---------- ----------
+COMP_OP    Computer Operator                    1500       3000
+
+12 rows selected.
+
+SQL> SELECT * FROM DEPOSIT;
+
+     ACTNO CNAME                BNAME                    AMOUNT ADATE
+---------- -------------------- -------------------- ---------- ---------
+       100 ANIL                 VRCE                       1000 01-MAR-95
+       101 SUNIL                AJNI                       5000 04-JAN-96
+       102 MEHUL                KAROL BAGH                 3500 17-NOV-95
+       104 MADHURI              CHANDI                     1200 17-DEC-95
+       105 PRMOD                M G ROAD                   3000 27-MAR-96
+       106 SANDIP               ANDHERI                    2000 31-MAR-96
+       107 SHIVANI              VIRAR                      1000 05-SEP-95
+       108 KRANTI               NEHRU PLACE                5000 02-JUL-95
+       109 MINU                 POWAI                      7000 10-AUG-95
+       101 Anil                 andheri                    7000 01-JAN-06
+       102 sunil                virar                      5000 15-JUL-06
+
+     ACTNO CNAME                BNAME                    AMOUNT ADATE
+---------- -------------------- -------------------- ---------- ---------
+       103 jay                  villeparle                 6500 12-MAR-06
+       104 vijay                andheri                    8000 17-SEP-06
+       105 keyur                dadar                      7500 19-NOV-06
+       106 mayur                borivali                   5500 21-DEC-06
+
+15 rows selected.
+
+SQL> SELECT * FROM JOB
+  2  WHERE min_sal > 4000;
+
+JOB_ID     JOB_NAME                          MIN_SAL    MAX_SAL
+---------- ------------------------------ ---------- ----------
+MK_MGR     Marketing Manager                    9000      15000
+FI_MGR     Finance Manager                      8200      12000
+FI_ACC     Account                              4200       9000
+LEC        Lecturer                             6000      17000
+MK_MGR     Marketing manager                    9000      15000
+FI_MGR     Finance manager                      8200      12000
+FI_ACC     Account                              4200       9000
+LEC        Lecturer                             6000      17000
+
+8 rows selected.
+
+SQL> SELECT emp_name AS NAME, emp_sal FROM EMPLOYEE
+  2  WHERE dept_no = 20;
+
+NAME                    EMP_SAL
+-------------------- ----------
+Smith                       800
+Adama                      1100
+Smith                       800
+Adama                      1100
+
+SQL> SELECT emp_no, emp_name, dept_no FROM EMPLOYEE
+  2  WHERE dept_no IN (10,20);
+
+    EMP_NO EMP_NAME                DEPT_NO
+---------- -------------------- ----------
+       101 Smith                        20
+       103 Adama                        20
+       105 Anita                        10
+       106 Sneha                        10
+       101 Smith                        20
+       103 Adama                        20
+       105 Anita                        10
+       106 Sneha                        10
+
+8 rows selected.
+
+SQL> SELECT * FROM EMPLOYEE
+  2  WHERE emp_name LIKE 'A%';
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO
+---------- -------------------- ---------- ---------- ----------
+       103 Adama                      1100          0         20
+       104 Aman                       3000                    15
+       105 Anita                      5000       5000         10
+       107 Anamika                    2975                    30
+       103 Adama                      1100          0         20
+       104 Aman                       3000                    15
+       105 Anita                      5000       5000         10
+       107 Anamika                    2975                    30
+
+8 rows selected.
+
+SQL> SELECT * FROM EMPLOYEE
+  2  WHERE emp_name LIKE '__a%';
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO
+---------- -------------------- ---------- ---------- ----------
+       103 Adama                      1100          0         20
+       104 Aman                       3000                    15
+       107 Anamika                    2975                    30
+       103 Adama                      1100          0         20
+       104 Aman                       3000                    15
+       107 Anamika                    2975                    30
+
+6 rows selected.
+
+SQL> SELECT * FROM EMPLOYEE
+  2  WHERE emp_name LIKE 'A_a%';
+
+    EMP_NO EMP_NAME                EMP_SAL   EMP_COMM    DEPT_NO
+---------- -------------------- ---------- ---------- ----------
+       103 Adama                      1100          0         20
+       104 Aman                       3000                    15
+       107 Anamika                    2975                    30
+       103 Adama                      1100          0         20
+       104 Aman                       3000                    15
+       107 Anamika                    2975                    30
+
+6 rows selected.
+
+SQL> SELECT emp_name, emp_no, emp_sal FROM EMPLOYEE
+  2  WHERE emp_name LIKE 'Ani__';
+
+EMP_NAME                 EMP_NO    EMP_SAL
+-------------------- ---------- ----------
+Anita                       105       5000
+Anita                       105       5000
+
+SQL> SELECT cname FROM DEPOSIT
+  2  ORDER BY cname;
+
+CNAME
+--------------------
+ANIL
+Anil
+KRANTI
+MADHURI
+MEHUL
+MINU
+PRMOD
+SANDIP
+SHIVANI
+SUNIL
+jay
+
+CNAME
+--------------------
+keyur
+mayur
+sunil
+vijay
+
+15 rows selected.

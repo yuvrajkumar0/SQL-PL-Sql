@@ -1,0 +1,78 @@
+SQL> SELECT SYSDATE + 15 FROM DUAL;
+
+SYSDATE+1                                                                       
+---------                                                                       
+26-APR-26                                                                       
+
+SQL> -- Adding 5 months
+SQL> SELECT ADD_MONTHS(SYSDATE, 5) FROM DUAL;
+
+ADD_MONTH                                                                       
+---------                                                                       
+11-SEP-26                                                                       
+
+SQL> 
+SQL> -- Subtracting 5 months
+SQL> SELECT ADD_MONTHS(SYSDATE, -5) FROM DUAL;
+
+ADD_MONTH                                                                       
+---------                                                                       
+11-NOV-25                                                                       
+
+SQL> SELECT ASCII('M') FROM DUAL;
+
+ASCII('M')                                                                      
+----------                                                                      
+        77                                                                      
+
+SQL> SELECT CHR(67), CHR(65), CHR(84) FROM DUAL;
+
+C C C                                                                           
+- - -                                                                           
+C A T                                                                           
+
+SQL> SELECT LAST_DAY(SYSDATE) FROM DUAL;
+
+LAST_DAY(                                                                       
+---------                                                                       
+30-APR-26                                                                       
+
+SQL> SELECT SYSDATE - TO_DATE('20-MAY-2015', 'DD-MON-YYYY') FROM DUAL;
+
+SYSDATE-TO_DATE('20-MAY-2015','DD-MON-YYYY')                                    
+--------------------------------------------                                    
+                                  3979.97531                                    
+
+SQL> SELECT MONTHS_BETWEEN(SYSDATE, TO_DATE('03-MAR-2016', 'DD-MON-YYYY')) FROM DUAL;
+
+MONTHS_BETWEEN(SYSDATE,TO_DATE('03-MAR-2016','DD-MON-YYYY'))                    
+------------------------------------------------------------                    
+                                                  121.289529                    
+
+SQL> SELECT INSTR('corporate floor', 'or', 3, 2) FROM DUAL;
+
+INSTR('CORPORATEFLOOR','OR',3,2)                                                
+--------------------------------                                                
+                              14                                                
+
+SQL> SELECT INITCAP('marwadi university') FROM DUAL;
+
+INITCAP('MARWADIUN                                                              
+------------------                                                              
+Marwadi University                                                              
+
+SQL> SELECT USER, USERENV('SESSIONID') FROM DUAL;
+
+USER                                                                            
+--------------------------------------------------------------------------------
+USERENV('SESSIONID')                                                            
+--------------------                                                            
+C##DDD8                                                                         
+              260142                                                            
+                                                                                
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
